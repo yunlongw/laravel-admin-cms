@@ -15,6 +15,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return "hello world";
+        return "web index page";
     }
 }

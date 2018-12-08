@@ -15,6 +15,18 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => "Web"], function ($router){
+Route::group(['namespace' => "Web"], function ($router) {
     $router->get('/', 'IndexController@index')->name('web.index');
+});
+
+Route::group(['namespace' => "Api", 'prefix' => 'api'], function ($router) {
+    $router->get('/', 'IndexController@index')->name('api.index');
+});
+
+Route::group(['namespace' => "Wap", 'prefix' => 'm'], function ($router) {
+    $router->get('/', 'IndexController@index')->name('wap.index');
+});
+
+Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace' => 'Admin'], function ($router) {
+    $router->get('/', 'IndexController@index')->name('admin.index');
 });
