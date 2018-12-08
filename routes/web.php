@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::group(['namespace' => "Web"], function ($router){
+    $router->get('/', 'IndexController@index')->name('web.index');
 });
