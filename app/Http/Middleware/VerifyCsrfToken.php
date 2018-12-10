@@ -14,11 +14,14 @@ class VerifyCsrfToken extends Middleware
     protected $addHttpCookie = true;
 
     /**
+     * 从 CSRF 验证中排除的 URL
      * The URIs that should be excluded from CSRF verification.
      *
      * @var array
      */
     protected $except = [
-        //
+        'alipay/*',
+        'http://example.com/foo/bar',
+        'http://example.com/foo/*',
     ];
 }
