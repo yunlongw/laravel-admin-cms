@@ -128,6 +128,12 @@ return [
             'icon' => 'user',
         ],
         [
+            'text' => 'UserList',
+            'url'  => 'admin/users',
+            'icon' => 'users',
+            'permission' => 'manage_users'
+        ],
+        [
             'text' => 'Change Password',
             'url'  => 'admin/settings',
             'icon' => 'lock',
@@ -203,6 +209,7 @@ return [
         JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        \App\MyMenuFilter::class,
     ],
 
     /*

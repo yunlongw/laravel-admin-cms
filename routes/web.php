@@ -106,6 +106,8 @@ Route::group(['namespace' => "Wap", 'prefix' => 'm'], function ($router) {
  */
 Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace' => 'Admin'], function ($router) {
     $router->get('/', 'IndexController@index')->name('admin.index');
+    $router->get('/users','UserController@index')->name('User');
+
 
 });
 
