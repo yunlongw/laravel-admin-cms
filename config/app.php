@@ -177,6 +177,8 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+
     ],
 
     /*

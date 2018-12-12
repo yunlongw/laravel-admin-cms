@@ -24,6 +24,11 @@ Route::group(['namespace' => 'Auth'], function ($router) {
 
 Route::resource('post', 'PostController');
 
+//Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@do']);
+
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /**
  * http://dev.admin.blog.com/
@@ -31,16 +36,20 @@ Route::resource('post', 'PostController');
  * http://dev.admin.blog.com/loginOut
  */
 Route::group(['domain' => 'dev.admin.blog.com'], function ($router) {
-    $router->get('/', 'Admin\AuthController@getLogin')->name('admin.init');
+    Auth::routes();
+    $router->get('/home', 'HomeController@index')->name('home');
+    $router->get('/', 'HomeController@index')->name('home');
+
     //直接访问不了，需要在表单中加入令牌参数
-    $router->post('/login', 'Admin\AuthController@postLogin')->name('admin.postLogin');
-    $router->get('/loginOut', 'Admin\AuthController@getLoginOut')->name('admin.getLoginOut');
+//    $router->post('/login', 'Admin\AuthController@postLogin')->name('admin.postLogin');
+//    $router->get('/loginOut', 'Admin\AuthController@getLoginOut')->name('admin.getLoginOut');
+
 
 
     /**
      * http://dev.admin.blog.com/store?title=22
      */
-    $router->get('/store', 'Admin\AuthController@store');
+//    $router->get('/store', 'Admin\AuthController@store');
 });
 
 /**
@@ -83,41 +92,7 @@ Route::group(['namespace' => "Web", 'prefix' => 'web'], function ($router) {
 
 });
 
-/**
- * http://dev.blog.com/api/
- */
-Route::group(['namespace' => "Api", 'prefix' => 'api'], function ($router) {
 
-    //兜底路由
-    $router->fallback(function () {
-        return json_encode([
-            'code' => -1,
-            'message' => '你所访问的接口不存在'
-        ]);
-    });
-
-    /**
-     * 频率限制
-     * 在 Laravel 5.6 中，还引入了频率限制功能。
-     * 所谓频率限制，指的是在指定时间单个用户对某个路由的访问次数限制，该功能有两个
-     * 使用场景，一个是在某些需要验证/认证的页面限制用户失败尝试次数，提高系统的安
-     * 全性，另一个是避免非正常用户（比如爬虫）对路由的过度频繁访问，从而提高系统的
-     * 可用性，此外，在流量高峰期还可以借助此功能进行有效的限流。
-     */
-    $router->middleware('throttle:10,1')->group(function () use ($router) {
-        $router->get('/user', function () {
-            return json_encode(['code' => 200, 'data' => ['user_list' => []]]);
-        });
-    });
-
-    $router->get('/', 'IndexController@index')->name('api.index');
-
-    $router->get('/flights/{flights}', function (\App\Models\Flights $flights) {
-        dd($flights->getOriginal());
-    });
-
-
-});
 
 /**
  * http://dev.blog.com/m/
@@ -133,5 +108,7 @@ Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace'
     $router->get('/', 'IndexController@index')->name('admin.index');
 
 });
+
+
 
 

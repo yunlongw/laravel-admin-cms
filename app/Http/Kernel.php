@@ -2,11 +2,13 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckToken;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
     /**
+     * 全局中间件
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
@@ -22,6 +24,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
+     * 应用的中间件组
      * The application's route middleware groups.
      *
      * @var array
@@ -44,8 +47,9 @@ class Kernel extends HttpKernel
     ];
 
     /**
+     * 应用的路由中间件列表
      * The application's route middleware.
-     *
+     * 这些中间件可以分配给路由组或者单个路由
      * These middleware may be assigned to groups or used individually.
      *
      * @var array
@@ -60,6 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'token' => CheckToken::class,
     ];
 
     /**
