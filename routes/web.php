@@ -112,3 +112,7 @@ Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace'
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
