@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         (new User())->add();
-        return view('home');
+        echo 1;
+//        return view('home');
     }
 }

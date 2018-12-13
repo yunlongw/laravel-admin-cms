@@ -126,6 +126,7 @@ return [
             'text' => 'Profile',
             'url'  => 'admin/settings',
             'icon' => 'user',
+            'permission' => 'edit_settings'
         ],
         [
             'text' => 'UserList',

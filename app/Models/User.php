@@ -24,8 +24,8 @@ class User extends Model
         $user = new User();
         $user = $user->find(1);
 
-        $user->assignRole('Founder');
-
+//        $user->assignRole('Founder');
+//        $user->givePermissionTo('manage_users');
     }
 
 }
