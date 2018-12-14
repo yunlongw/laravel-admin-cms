@@ -105,16 +105,14 @@ Route::group(['namespace' => "Wap", 'prefix' => 'm'], function ($router) {
  * http://dev.admin.blog.com/admin/
  */
 Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace' => 'Admin'], function ($router) {
+    Auth::routes();
     $router->get('/', 'IndexController@index')->name('admin.index');
     $router->get('/users','UserController@index')->name('User');
-
 
 });
 
 
 
 
-
-Auth::routes();
-
+Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('/home', 'HomeController@index')->name('home');

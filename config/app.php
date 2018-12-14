@@ -180,6 +180,7 @@ return [
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*
