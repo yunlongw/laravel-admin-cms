@@ -26,12 +26,12 @@ class MyMenuFilter implements FilterInterface
     public function transform($item, Builder $builder)
     {
         $user = \App\Models\User::find(\Auth::id());
-        $permissions =  $user->permissions;
-        $getAllPermissions = $user->getAllPermissions();
+//        $permissions =  $user->permissions;
+//        $getAllPermissions = $user->getAllPermissions();
         if (isset($item['permission'])){
-          if (!$b = $user->hasPermissionTo($item['permission'])){
-              return false;
-          }
+//          if (!$b = $user->hasPermissionTo($item['permission'])){
+//              return false;
+//          }
         }
 
         return $item;
