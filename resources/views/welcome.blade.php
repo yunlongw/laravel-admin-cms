@@ -2,6 +2,11 @@
 
 @section('content')
 
-    welcome to site
+    <script>
+        Echo.private(`order`)
+            .listen('ShippingStatusUpdated', (e) => {
+                console.log(e.update);
+            });
+    </script>
 
 @endsection

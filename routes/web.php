@@ -113,6 +113,7 @@ Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace'
 
 
 
-
+//增加 auth 中间件，验证使用权限
 Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');

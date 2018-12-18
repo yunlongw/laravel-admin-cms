@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\RssCreatedEvent;
+use App\Jobs\ProcessPodcast;
 use App\Models\User;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -24,8 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        (new User())->add();
-        echo 1;
-//        return view('home');
+       return view('home');
     }
 }

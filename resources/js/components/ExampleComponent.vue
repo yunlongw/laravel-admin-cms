@@ -6,18 +6,10 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm aaaaan example component.
+                        I'm aaaaan example component.2222
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
