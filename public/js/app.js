@@ -36313,7 +36313,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm aaaaan example component.2222\n                "
+                "\n                    I'm an22222 example component.\n                "
               )
             ])
           ])
@@ -47612,7 +47612,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
-var app = new Vue({
+myapp = new Vue({
   el: '#app',
   data: {
     msg: '',
@@ -47620,6 +47620,7 @@ var app = new Vue({
   },
   methods: {
     sendMsg: function sendMsg() {
+      console.log("sendMsg");
       var self = this;
 
       if (this.msg) {
@@ -47638,11 +47639,13 @@ var app = new Vue({
       }
     },
     pushMsg: function pushMsg(msg) {
+      console.log("pushMsg");
       this.messageArray.push({
         self: msg
       });
     },
     listenMsg: function listenMsg(msg) {
+      console.log("listenMsg");
       this.messageArray.push({
         other: msg
       });

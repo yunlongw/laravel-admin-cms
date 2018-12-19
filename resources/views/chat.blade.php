@@ -85,8 +85,9 @@
     }else{
         Echo.channel('everyone')
             .listen('SendMsgEvent', function (e) {
+                console.log(e.msg);
                 if (e.msg) {
-                    app.listenMsg(e.msg);
+                    myapp.listenMsg(e.msg);
                 }
             });
     }

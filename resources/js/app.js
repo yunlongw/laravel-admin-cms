@@ -17,7 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
+myapp = new Vue({
     el: '#app',
     data: {
         msg: '',
@@ -25,6 +25,7 @@ const app = new Vue({
     },
     methods: {
         sendMsg: function () {
+            console.log("sendMsg");
             var self = this;
             if (this.msg) {
                 axios.post('chat',{
@@ -42,11 +43,13 @@ const app = new Vue({
             }
         },
         pushMsg: function (msg) {
+            console.log("pushMsg");
             this.messageArray.push({
                 self: msg,
             });
         },
         listenMsg: function (msg) {
+            console.log("listenMsg");
             this.messageArray.push({
                 other: msg,
             });

@@ -19,11 +19,11 @@ class SendMsgEvent implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
 
-    protected $message;
+    public $msg;
 
     public function __construct($msg)
     {
-        $this->message = $msg;
+        $this->msg = $msg;
     }
 
     public function broadcastOn()

@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\RssCreatedEvent;
-use App\Events\SendMsgEvent;
-use App\Jobs\ProcessPodcast;
-use App\Models\User;
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
