@@ -16,7 +16,7 @@
 - **[AdminLTE](https://github.com/JeroenNoten/Laravel-AdminLTE#custom-menu-filters)**
 - **[laravel-echo-server](https://github.com/tlaverdure/laravel-echo-server)**
 - **[laravel-permission](https://github.com/spatie/laravel-permission)**
-- **[laravel-log-viewer](https://packagist.org/packages/rap2hpoutre/laravel-log-viewer)**
+- **[laravel-log-viewer](https://github.com/rap2hpoutre/laravel-log-viewer)**
 
 
 
