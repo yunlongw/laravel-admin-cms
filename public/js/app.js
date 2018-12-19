@@ -47613,7 +47613,41 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    msg: '',
+    messageArray: []
+  },
+  methods: {
+    sendMsg: function sendMsg() {
+      var self = this;
+
+      if (this.msg) {
+        axios.post('chat', {
+          message: this.msg
+        }).then(function (response) {
+          if (response.data.result == 'ok') {
+            self.pushMsg(self.msg);
+            self.msg = '';
+          }
+        }).catch(function (error) {
+          console.log(error);
+        });
+      } else {
+        alert('type something...');
+      }
+    },
+    pushMsg: function pushMsg(msg) {
+      this.messageArray.push({
+        self: msg
+      });
+    },
+    listenMsg: function listenMsg(msg) {
+      this.messageArray.push({
+        other: msg
+      });
+    }
+  }
 });
 
 /***/ }),

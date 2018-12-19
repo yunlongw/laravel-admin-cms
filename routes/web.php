@@ -18,6 +18,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get("/chat", "ChatController@index");
+Route::post("/chat", "ChatController@chat");
+
 Route::group(['namespace' => 'Auth'], function ($router) {
 //    $router->get('/');
 });
