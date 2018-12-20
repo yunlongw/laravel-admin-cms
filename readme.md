@@ -17,7 +17,7 @@
 - **[laravel-echo-server](https://github.com/tlaverdure/laravel-echo-server)**
 - **[laravel-permission](https://github.com/spatie/laravel-permission)**
 - **[laravel-log-viewer](https://github.com/rap2hpoutre/laravel-log-viewer)**
-
+- **[Laravel Telescope](https://github.com/laravel/telescope)**
 
 
 ## npm
