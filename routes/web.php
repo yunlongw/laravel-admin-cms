@@ -17,6 +17,7 @@
 Route::get('/welcome', function () {
     return view('welcome');
 });
+Route::get('/test', "TestController@index");
 
 Route::get("/chat", "ChatController@index");
 Route::post("/chat", "ChatController@chat");
