@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+Auth::check();
 /**
  * http://dev.admin.blog.com/welcome
  */
@@ -34,27 +36,7 @@ Route::resource('post', 'PostController');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-/**
- * http://dev.admin.blog.com/
- * http://dev.admin.blog.com/login
- * http://dev.admin.blog.com/loginOut
- */
-Route::group(['domain' => 'dev.admin.blog.com'], function ($router) {
-    Auth::routes();
-    $router->get('/home', 'HomeController@index')->name('home');
-    $router->get('/', 'HomeController@index')->name('home');
 
-    //直接访问不了，需要在表单中加入令牌参数
-//    $router->post('/login', 'Admin\AuthController@postLogin')->name('admin.postLogin');
-//    $router->get('/loginOut', 'Admin\AuthController@getLoginOut')->name('admin.getLoginOut');
-
-
-
-    /**
-     * http://dev.admin.blog.com/store?title=22
-     */
-//    $router->get('/store', 'Admin\AuthController@store');
-});
 
 /**
  * http://dev.blog.com/web/
@@ -108,13 +90,41 @@ Route::group(['namespace' => "Wap", 'prefix' => 'm'], function ($router) {
 /**
  * http://dev.admin.blog.com/admin/
  */
-Route::group(['domain' => 'dev.admin.blog.com', 'prefix' => 'admin', 'namespace' => 'Admin'], function ($router) {
-    Auth::routes();
-    $router->get('/', 'IndexController@index')->name('admin.index');
-    $router->get('/users','UserController@index')->name('User');
+Route::group(['domain' => 'dev.admin.blog.com', 'namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin'], function ($router) {
+
+    $router->get('/', 'IndexController@index')->name('admin.admin.index');
+
+    //用户列表
+    $router->get('/users','UserController@index')->name('admin.User.index');
+
+    //角色
+    $router->get('/roles','RolesController@index')->name('admin.roles.index');
+    $router->get('/roles/create','RolesController@create')->name('admin.roles.create');
+    $router->get('/roles/edit','RolesController@edit')->name('admin.roles.edit');
+    $router->post('/roles/store','RolesController@store')->name('admin.roles.store');
+    $router->post('/roles/destroy','RolesController@destroy')->name('admin.roles.destroy');
+
+
+    $router->get('/permissions','PermissionsController@index')->name('permissions.index');
+
 
 });
 
+/**
+ * http://dev.admin.blog.com/
+ * http://dev.admin.blog.com/login
+ * http://dev.admin.blog.com/loginOut
+ */
+//Route::group(['domain' => 'dev.admin.blog.com'], function ($router) {
+//
+//    $router->get('/home', 'HomeController@index')->name('home');
+//    $router->get('/', 'HomeController@index')->name('home');
+//
+//    //直接访问不了，需要在表单中加入令牌参数
+////    $router->post('/login', 'Admin\AuthController@postLogin')->name('admin.postLogin');
+////    $router->get('/loginOut', 'Admin\AuthController@getLoginOut')->name('admin.getLoginOut');
+////    $router->get('/store', 'Admin\AuthController@store');
+//});
 
 
 //增加 auth 中间件，验证使用权限

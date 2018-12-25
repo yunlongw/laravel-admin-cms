@@ -20,6 +20,11 @@
 - **[Laravel Telescope](https://github.com/laravel/telescope)**
 
 
+#### 日志
+http://dev.blog.com/logs
+#### telescope
+http://dev.blog.com/telescope
+
 ## npm
 
 - **[laravel-echo-server](https://vehikl.com/)**

@@ -13,6 +13,6 @@ class IndexController extends AdminBaseController
 {
     public function index()
     {
-        return "admin index page";
+        return view("admin.dashboard");
     }
 }

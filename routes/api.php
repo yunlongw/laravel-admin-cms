@@ -65,3 +65,10 @@ Route::group(['namespace' => "Api", 'middleware' => 'token'], function ($router)
 
 
 });
+
+/**
+ * 版本控制
+ */
+Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
+
+});

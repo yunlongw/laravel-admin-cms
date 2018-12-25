@@ -9,13 +9,13 @@
 namespace App\Http\Controllers\Admin;
 
 
-use App\Models\User;
+use App\User;
 
 class UserController extends AdminBaseController
 {
     public function index()
     {
         $users = User::all();
-        return view('admin.users', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 }

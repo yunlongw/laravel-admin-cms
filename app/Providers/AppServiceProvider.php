@@ -21,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add([
                 'text' => 'Blog',
                 'url' => '#',
-//                'can'  => 'manage-blog',
             ]);
             $event->menu->add([
                 'text' => 'Pages',
@@ -33,57 +32,24 @@ class AppServiceProvider extends ServiceProvider
 
             $event->menu->add('ACCOUNT SETTINGS');
             $event->menu->add([
-                'text' => 'Profile',
-                'url' => '#',
-                'icon' => 'user',
-                'permission' => 'edit_settings'
-            ]);
-            $event->menu->add([
-                'text' => 'UserList',
-                'url' => 'admin/users',
+                'text' => 'User Manage',
                 'icon' => 'users',
-                'permission' => 'manage_users'
-            ]);
-            $event->menu->add([
-                'text' => 'Change Password',
-                'url' => '#',
-                'icon' => 'lock',
-            ]);
-            $event->menu->add([
-                'text' => 'Multilevel',
-                'icon' => 'share',
+                'permission' => 'manage_users',
                 'submenu' => [
                     [
-                        'text' => 'Level One',
-                        'url' => '#',
+                        'text' => 'Permissions',
+                        'url' => 'admin/permissions',
+                        'icon' => 'briefcase',
                     ],
                     [
-                        'text' => 'Level One',
-                        'url' => '#',
-                        'submenu' => [
-                            [
-                                'text' => 'Level Two',
-                                'url' => '#',
-                            ],
-                            [
-                                'text' => 'Level Two',
-                                'url' => '#',
-                                'submenu' => [
-                                    [
-                                        'text' => 'Level Three',
-                                        'url' => '#',
-                                    ],
-                                    [
-                                        'text' => 'Level Three',
-                                        'url' => '#',
-                                    ],
-                                ],
-                            ],
-                        ],
+                        'text' => 'Roles',
+                        'url' => 'admin/roles',
+                        'icon' => 'briefcase',
                     ],
                     [
-                        'text' => 'Level One',
-                        'url' => '#',
+                        'text' => 'Users',
+                        'url' => 'admin/users',
+                        'icon' => 'user',
                     ],
                 ],
             ]);
