@@ -254,9 +254,3 @@
     <!-- /.content -->
 
 @stop
-
-@section('adminlte_js')
-    <script>
-
-    </script>
-@endsection

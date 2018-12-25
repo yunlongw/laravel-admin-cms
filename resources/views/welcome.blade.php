@@ -2,6 +2,6 @@
 
 @section('content')
 
-welcome !!!
+welcome !!!d
 
 @endsection

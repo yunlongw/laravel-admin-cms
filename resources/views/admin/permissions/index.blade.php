@@ -1,14 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissions')
-
 @section('content_header')
-    <h1>Permissions</h1>
+    <h1>@lang('global.permissions.title')</h1>
 @stop
 
 @section('content')
     <p>
-        <a href="#" class="btn btn-success">Add User</a>
+        <a href="{{ route('permissions.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
     </p>
 
     <div class="panel panel-default">
@@ -37,9 +35,23 @@
                             <td>{{$permission->guard_name}}</td>
                             <td>{{$permission->created_at}}</td>
                             <td>{{$permission->updated_at}}</td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('permissions.edit',[$permission->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                {!! Form::open(array(
+                                    'style' => 'display: inline-block',
+                                    'method' => 'DELETE',
+                                    'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."')",
+                                    'route' => ['permissions.destroy', $permission->id],
+                                )) !!}
+                                {!! Form::submit(trans("global.app_delete"), array('class'=> 'btn btn-xs btn-danger')) !!}
+                                {!! Form::close() !!}
+                            </td>
                         </tr>
                     @endforeach
+                @else
+                    <tr>
+                        <td colspan="3">@lang('global.app_no_entries_in_table')</td>
+                    </tr>
                 @endif
                 </tbody>
                 <tfoot>

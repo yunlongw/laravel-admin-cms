@@ -1,11 +1,5 @@
-@extends('adminlte::page')
-
-@section('title', 'AdminLTE')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
+@extends('layouts.web')
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>home</p>
 @stop

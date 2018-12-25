@@ -8,7 +8,7 @@
 
 @section('content')
     <p>
-        <a href="#" class="btn btn-success">Add User</a>
+        <a href="{{ route("users.create") }}" class="btn btn-success">Add User</a>
     </p>
 
     <div class="panel panel-default">

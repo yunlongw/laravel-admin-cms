@@ -8,7 +8,7 @@
 
 @section('content')
     <p>
-        <a href="{{ route('admin.roles.create') }}" class="btn btn-success">Add</a>
+        <a href="{{ route('roles.create') }}" class="btn btn-success">Add</a>
     </p>
 
     <div class="panel panel-default">
@@ -44,12 +44,13 @@
                             <td>{{$role->created_at}}</td>
                             <td>{{$role->updated_at}}</td>
                             <td>
-                                <a href="{{ route('admin.roles.edit',[$role->id]) }}" class="btn btn-xs btn-info">edit</a>
+                                <a href="{{ route('roles.edit',[$role->id]) }}" class="btn btn-xs btn-info">edit</a>
+
                                 {!! Form::open(array(
                                     'style' => 'display: inline-block;',
                                     'method' => 'DELETE',
                                     'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
-                                    'route' => ['admin.roles.destroy', $role->id])) !!}
+                                    'route' => ['roles.destroy', $role->id])) !!}
                                 {!! Form::submit(trans('delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
                             </td>

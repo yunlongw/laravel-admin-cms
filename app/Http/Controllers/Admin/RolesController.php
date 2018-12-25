@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePermissionsRequest;
+use App\Http\Requests\admin\UpdateRolesRequest;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -37,7 +38,7 @@ class RolesController extends Controller
         //给角色授予权限
         $role->givePermissionTo($permissions);
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -60,6 +61,22 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return view('admin.roles.index', compact('role', 'permissions'));
+        return redirect()->route('roles.index');
+    }
+
+    /**
+     *
+     * @param UpdateRolesRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateRolesRequest $request, $id)
+    {
+        $role = Role::findOrFail($id);
+        $role->update($request->except('permission'));
+        $permissions = $request->input('permission') ? $request->input('permission') : [];
+        $role->syncPermissions($permissions);
+
+        return redirect()->route('roles.index');
     }
 }
