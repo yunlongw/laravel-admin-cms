@@ -11,9 +11,6 @@
 |
 */
 
-Auth::routes();
-Auth::check();
-
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -24,29 +21,20 @@ Route::get('/test', "TestController@index");
 //聊天室
 Route::get("/chat", "ChatController@index");
 Route::post("/chat", "ChatController@chat");
-
 Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
+Auth::routes();
 
-// http://dev.blog.com/web/
-Route::group(['namespace' => "Web", 'prefix' => 'web'], function ($router) {
+Route::group(['guard' => 'admin','domain' => 'dev.admin.blog.com'], function ($router) {
 
-});
-
-
-// http://dev.blog.com/m/
-Route::group(['namespace' => "Wap", 'prefix' => 'm'], function ($router) {
-    $router->get('/', 'IndexController@index')->name('wap.index');
-});
-
-
-Route::group(['domain' => 'dev.admin.blog.com', 'middleware' => 'auth'], function ($router) {
     $router->get('/', 'admin\IndexController@index');
+    $router->get('/home', 'admin\IndexController@index');
 });
-Route::group(['domain' => 'dev.admin.blog.com', 'namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin'], function ($router) {
 
-    $router->get('/', 'IndexController@index')->name('admin.admin.index');
+Route::group(['guard' => 'admin','domain' => 'dev.admin.blog.com', 'namespace' => 'Admin', 'prefix' => 'admin'], function ($router) {
+
+    $router->get('/', 'IndexController@index');
     $router->get('/home', 'IndexController@index');
 
     Route::resource('users', 'UserController');

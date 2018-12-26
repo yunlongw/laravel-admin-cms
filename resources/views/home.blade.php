@@ -1,5 +1,9 @@
 @extends('layouts.web')
 
 @section('content')
-    <p>home</p>
-@stop
+
+    <div>
+        "路由不存在,默认跳转"
+    </div>
+
+@endsection

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 
-use App\Http\Controllers\Controller;
+use App\Admin;
 use App\Http\Requests\Admin\StorePermissionsRequest;
 use App\Http\Requests\Admin\UpdatePermissionsRequest;
 use Spatie\Permission\Models\Permission;
 
-class PermissionsController extends Controller
+class PermissionsController extends AdminBaseController
 {
     /**
      * Display a listing of the resource.
@@ -39,8 +39,9 @@ class PermissionsController extends Controller
      */
     public function store(StorePermissionsRequest $request)
     {
-        Permission::create($request->all());
-
+        $data = $request->all();
+        $data['guard_name'] = "admin";
+        Permission::create($data);
         return redirect()->route('permissions.index');
     }
 

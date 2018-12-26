@@ -8,7 +8,7 @@
 
 namespace App;
 
-use App\User;
+use App\Admin;
 use Illuminate\Support\Facades\Auth;
 use JeroenNoten\LaravelAdminLte\Menu\Builder;
 use JeroenNoten\LaravelAdminLte\Menu\Filters\FilterInterface;
@@ -27,10 +27,21 @@ class MyMenuFilter implements FilterInterface
 
     public function transform($item, Builder $builder)
     {
-//        $user = User::find(Auth::id());
-//        if (isset($item['permission']) && ! $user->hasPermissionTo($item['permission'])) {
-//            return false;
-//        }
+        $user = $this->getUser();
+        if (isset($item['permission']) && !$user->hasPermissionTo($item['permission'])) {
+            return false;
+        }
         return $item;
+    }
+
+    public function getUser(): Admin
+    {
+        static $user;
+        if ($user) {
+            return $user;
+        } else {
+            $user = Admin::find(Auth::id());
+            return $user;
+        }
     }
 }

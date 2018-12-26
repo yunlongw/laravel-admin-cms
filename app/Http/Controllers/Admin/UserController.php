@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Admin;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
-use App\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class UserController extends Controller
+class UserController extends AdminBaseController
 {
+    public function permission()
+    {
+        if (! Gate::allows('users_manage')) {
+            return abort(401);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $this->permission();
+        $users = Admin::all();
         return view('admin.users.index', compact('users'));
     }
 
@@ -30,6 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->permission();
         $roles = Role::get()->pluck('name', 'name');
         return view('admin.users.create', compact('roles'));
 
@@ -41,24 +49,14 @@ class UserController extends Controller
      */
     public function store(StoreUsersRequest $request)
     {
+        $this->permission();
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
-        $user = User::create($data);
+        $user = Admin::create($data);
         $roles = $request->input('roles') ? $request->input('roles') : [];
         $user->assignRole($roles);
 
         return redirect()->route('users.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -69,7 +67,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $this->permission();
+        $user = Admin::findOrFail($id);
         $roles = Role::get()->pluck('name', 'name');
         return view("admin.users.edit", compact('user', "roles"));
     }
@@ -83,7 +82,8 @@ class UserController extends Controller
      */
     public function update(UpdateUsersRequest $request, $id)
     {
-        $user = User::findOrFail($id);
+        $this->permission();
+        $user = Admin::findOrFail($id);
         $data = $request->all();
         if (isset($data['password']) && $data['password']) {
             $data['password'] = Hash::make($data['password']);
@@ -104,7 +104,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        $this->permission();
+        $user = Admin::findOrFail($id);
         $user->delete();
 
         return redirect()->route('admin.users.index');

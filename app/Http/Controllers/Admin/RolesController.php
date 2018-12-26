@@ -9,13 +9,12 @@
 namespace App\Http\Controllers\Admin;
 
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePermissionsRequest;
 use App\Http\Requests\admin\UpdateRolesRequest;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RolesController extends Controller
+class RolesController extends AdminBaseController
 {
     public function index()
     {
@@ -32,7 +31,9 @@ class RolesController extends Controller
     public function store(StorePermissionsRequest $request)
     {
         //创建角色
-        $role = Role::create($request->except('permission'));
+        $data = $request->except('permission');
+        $data['guard_name'] = "admin";
+        $role = Role::create();
         //权限
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         //给角色授予权限
