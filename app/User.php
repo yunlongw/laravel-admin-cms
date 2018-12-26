@@ -34,6 +34,9 @@ class User extends Authenticatable
      */
     protected $guard_name = 'admin';
 
+
+
+
     public function getUserInfo($uid)
     {
         $value = Cache::get("user:{$uid}");
