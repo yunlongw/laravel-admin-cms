@@ -9,10 +9,14 @@
 namespace App\Http\Controllers\Admin;
 
 
+
+use Illuminate\Http\Request;
+
 class IndexController extends AdminBaseController
 {
-    public function index()
+    public function index(Request $request)
     {
+//        var_dump($request->user());
         return view("admin.dashboard");
     }
 }
