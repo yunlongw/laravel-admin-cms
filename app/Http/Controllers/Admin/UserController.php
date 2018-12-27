@@ -13,9 +13,9 @@ class UserController extends AdminBaseController
 {
     public function permission()
     {
-//        if (! Gate::allows('manage_users')) {
-//            return abort(401);
-//        }
+        if (! Gate::allows('manage_users')) {
+            return abort(401);
+        }
     }
 
     /**

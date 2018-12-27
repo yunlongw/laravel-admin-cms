@@ -8,7 +8,6 @@
 
 namespace App;
 
-use App\Admin;
 use Illuminate\Support\Facades\Auth;
 use JeroenNoten\LaravelAdminLte\Menu\Builder;
 use JeroenNoten\LaravelAdminLte\Menu\Filters\FilterInterface;
@@ -18,7 +17,7 @@ use JeroenNoten\LaravelAdminLte\Menu\Filters\FilterInterface;
  * Class MyMenuFilter
  * @package App
  */
-class MyMenuFilter implements FilterInterface
+class MenuFilter implements FilterInterface
 {
     public function getQuery()
     {
@@ -40,7 +39,7 @@ class MyMenuFilter implements FilterInterface
         if ($user) {
             return $user;
         } else {
-            $user = Admin::find(Auth::id());
+            $user = Admin::find(Auth::guard('admin')->id());
             return $user;
         }
     }
