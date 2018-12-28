@@ -26,13 +26,13 @@ Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Auth::routes();
 
-Route::group(['guard' => 'admin','domain' => 'dev.admin.blog.com'], function ($router) {
+Route::group(['guard' => 'admin'], function ($router) {
 
     $router->get('/', 'admin\IndexController@index');
     $router->get('/home', 'admin\IndexController@index');
 });
 
-Route::group(['guard' => 'admin','domain' => 'dev.admin.blog.com', 'namespace' => 'Admin', 'prefix' => 'admin'], function ($router) {
+Route::group(['guard' => 'admin', 'namespace' => 'Admin', 'prefix' => 'admin'], function ($router) {
 
     $router->get('/', 'IndexController@index');
     $router->get('/home', 'IndexController@index');
