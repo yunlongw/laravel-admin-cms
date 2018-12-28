@@ -27,6 +27,9 @@ class MenuFilter implements FilterInterface
     public function transform($item, Builder $builder)
     {
         $user = $this->getUser();
+        if (Auth::id()  == 1){
+            return $item;
+        }
         if (isset($item['permission']) && !$user->hasPermissionTo($item['permission'])) {
             return false;
         }

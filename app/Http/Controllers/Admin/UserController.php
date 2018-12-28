@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Admin;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -13,6 +14,9 @@ class UserController extends AdminBaseController
 {
     public function permission()
     {
+        if (Auth::id()  == 1){
+            return true;
+        }
         if (! Gate::allows('manage_users')) {
             return abort(401);
         }
