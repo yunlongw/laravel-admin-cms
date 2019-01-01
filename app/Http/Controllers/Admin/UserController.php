@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Admin;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 use Illuminate\Support\Facades\Auth;

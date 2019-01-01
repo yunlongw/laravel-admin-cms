@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\admin;
 
 
-use App\Admin;
 use App\Http\Requests\Admin\StorePermissionsRequest;
 use App\Http\Requests\Admin\UpdatePermissionsRequest;
 use Spatie\Permission\Models\Permission;

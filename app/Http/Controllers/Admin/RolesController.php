@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Http\Requests\Admin\StorePermissionsRequest;
 use App\Http\Requests\admin\UpdateRolesRequest;
 use Spatie\Permission\Models\Permission;
