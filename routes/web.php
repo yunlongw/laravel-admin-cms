@@ -34,8 +34,8 @@ Route::group(['guard' => 'Admin'], function ($router) {
 
 Route::group(['guard' => 'admin', 'prefix' => 'admin'], function ($router) {
 
-    $router->get('/', 'IndexController@index');
-    $router->get('/home', 'IndexController@index');
+    $router->get('/', 'Admin\IndexController@index');
+    $router->get('/home', 'Admin\IndexController@index');
 
     Route::resource('users', 'Admin\UserController');
     Route::resource('roles', 'Admin\RolesController');
