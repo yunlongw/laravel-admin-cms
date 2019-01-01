@@ -32,14 +32,14 @@ Route::group(['guard' => 'Admin'], function ($router) {
     $router->get('/home', 'Admin\IndexController@index');
 });
 
-Route::group(['guard' => 'admin', 'namespace' => 'Admin', 'prefix' => 'admin'], function ($router) {
+Route::group(['guard' => 'admin', 'prefix' => 'admin'], function ($router) {
 
     $router->get('/', 'IndexController@index');
     $router->get('/home', 'IndexController@index');
 
-    Route::resource('users', 'UserController');
-    Route::resource('roles', 'RolesController');
-    Route::resource('permissions', 'PermissionsController');
+    Route::resource('users', 'Admin\UserController');
+    Route::resource('roles', 'Admin\RolesController');
+    Route::resource('permissions', 'Admin\PermissionsController');
 });
 
 
