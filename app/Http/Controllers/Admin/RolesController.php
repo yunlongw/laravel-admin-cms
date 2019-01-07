@@ -31,8 +31,7 @@ class RolesController extends AdminBaseController
     {
         //创建角色
         $data = $request->except('permission');
-        $data['guard_name'] = "admin";
-        $role = Role::create();
+        $role = Role::create($data);
         //权限
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         //给角色授予权限

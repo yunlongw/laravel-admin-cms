@@ -17,58 +17,14 @@ use Illuminate\Http\Request;
 | 缀以及其他的路由群组选项：
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+    $api->post('user/index', 'UserController@index');
+    $api->post('index/index', 'IndexController@index');
 });
 
-
-/**
- * http://dev.blog.com/api/
- */
-Route::group(['namespace' => "Api", 'middleware' => 'token'], function ($router) {
-
-    $router->get('/', 'IndexController@index')->name('api.index');
-    $router->post('/', 'IndexController@index')->name('api.index');
-
-    /**
-     * 事件
-     */
-    $router->get('/event', 'IndexController@event')->name('api.event');
-
-    //兜底路由
-    $router->fallback(function () {
-        return json_encode([
-            'code' => -1,
-            'message' => '你所访问的接口不存在'
-        ]);
-    });
-
-    /**
-     * 频率限制
-     * 在 Laravel 5.6 中，还引入了频率限制功能。
-     * 所谓频率限制，指的是在指定时间单个用户对某个路由的访问次数限制，该功能有两个
-     * 使用场景，一个是在某些需要验证/认证的页面限制用户失败尝试次数，提高系统的安
-     * 全性，另一个是避免非正常用户（比如爬虫）对路由的过度频繁访问，从而提高系统的
-     * 可用性，此外，在流量高峰期还可以借助此功能进行有效的限流。
-     */
-    $router->middleware('throttle:10,1')->group(function () use ($router) {
-        $router->get('/user', function () {
-            return json_encode(['code' => 200, 'data' => ['user_list' => []]]);
-        });
-    });
-
-
-
-    $router->get('/flights/{flights}', function (\App\Models\Flights $flights) {
-        dd($flights->getOriginal());
-    });
-
-
-});
-
-/**
- * 版本控制
- */
-Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
-
+$api->version('v2', ['namespace' => 'App\Http\Controllers\Api\V2'], function ($api) {
+    $api->post('user/index', 'UserController@index');
+    $api->post('index/index', 'IndexController@index');
 });

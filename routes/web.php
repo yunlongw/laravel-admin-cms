@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+//Route::get('/welcome', function () {
+//    return view('welcome');
+//});
 
 //测试
 Route::get('/test', "TestController@index");

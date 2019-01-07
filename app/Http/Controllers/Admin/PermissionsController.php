@@ -39,7 +39,6 @@ class PermissionsController extends AdminBaseController
     public function store(StorePermissionsRequest $request)
     {
         $data = $request->all();
-        $data['guard_name'] = "admin";
         Permission::create($data);
         return redirect()->route('permissions.index');
     }

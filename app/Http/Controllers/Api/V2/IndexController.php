@@ -6,16 +6,19 @@
  * Time: 15:02
  */
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V2;
 
 
+use App\Http\Controllers\Api\BaseController;
 
 class IndexController extends BaseController
 {
 
     public function index()
     {
-        return $this->response->array([]);
+        return $this->response->array([
+            'version' => 'v2'
+        ]);
     }
 
 }
