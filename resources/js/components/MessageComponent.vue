@@ -47,7 +47,7 @@
             let that = this
             // 12. 创建 Echo 监听
             Echo.channel('rss')
-                .listen('RssCreatedEvent', (e) => {
+                .listen('MessageEvent', (e) => {
                     that.names.push({
                         name: e.name,
                         message : e.message

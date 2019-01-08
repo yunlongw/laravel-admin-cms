@@ -23,7 +23,7 @@
                     </li>
                     <li v-for="name in names">
                         <a href="#">
-                            <i class="fa fa-warning text-red"></i> {{ name }}
+                            <i class="fa fa-warning text-red"></i> {{ name.name }}
                         </a>
                     </li>
                 </ul>
@@ -45,8 +45,8 @@
             let that = this
             // 12. 创建 Echo 监听
             Echo.channel('rss')
-                .listen('RssCreatedEvent', (e) => {
-                    that.names.push(e.message)
+                .listen('NotificationsEvent', (e) => {
+                    that.names.push(e)
                 });
         }
     }
