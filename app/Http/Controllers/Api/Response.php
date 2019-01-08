@@ -11,10 +11,13 @@ namespace App\Http\Controllers\Api;
 
 class Response
 {
+    const SUCCESS = 200;
+    const FAIL = 0;
+
     public static function success($data)
     {
         return [
-            'status_code' => 200,
+            'status_code' => self::SUCCESS,
             'data' => $data,
         ];
     }
@@ -22,7 +25,7 @@ class Response
     public static function error($message = '')
     {
         return [
-            'status_code' => 0,
+            'status_code' => self::FAIL,
             'message' => $message,
         ];
     }

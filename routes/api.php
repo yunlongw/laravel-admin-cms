@@ -22,6 +22,11 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
     $api->post('user/index', 'UserController@index');
     $api->post('index/index', 'IndexController@index');
+    $api->post('user/register', 'UserController@register');
+    $api->post('user/login', 'UserController@login');
+    $api->post('user/logout', 'UserController@logout');
+    $api->post('user/refresh', 'UserController@refresh');
+    $api->post('user/me', 'UserController@me');
 });
 
 $api->version('v2', ['namespace' => 'App\Http\Controllers\Api\V2'], function ($api) {

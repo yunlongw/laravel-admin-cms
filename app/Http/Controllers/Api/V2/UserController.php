@@ -9,14 +9,15 @@
 namespace App\Http\Controllers\Api\V2;
 
 
-use App\Http\Controllers\Api\BaseController;
+use App\Http\Controllers\Api\V1\UserController as V1;
 use App\User;
+
 
 /**
  * 用户资源标识
  * @Resource("Users", uri="/users")
  */
-class UserController extends BaseController
+class UserController extends V1
 {
     public function show($id)
     {
@@ -30,5 +31,7 @@ class UserController extends BaseController
         $users = User::all();
         return $this->response->array($users->all());
     }
+
+
 
 }

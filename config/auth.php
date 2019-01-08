@@ -42,8 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+            'driver' => 'jwt',
+            'provider' => 'members',
         ],
 
         'admin' => [
@@ -75,10 +75,15 @@ return [
             'model' => App\User::class,
         ],
 
-         'admins' => [
-             'driver' => 'eloquent',
-             'model' => App\Admin::class,
-         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+
+        'members' => [
+            'driver' => 'eloquent',
+            'model' => \App\Http\Controllers\Api\Model\Member::class,
+        ],
     ],
 
     /*
