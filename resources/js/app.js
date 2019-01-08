@@ -18,6 +18,8 @@ window.Vue = require('vue');
 Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
+Vue.component('notifications-component', require('./components/NotificationsComponent.vue').default);
 
 myapp = new Vue({
     el: '#app',

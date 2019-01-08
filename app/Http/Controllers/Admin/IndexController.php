@@ -14,7 +14,6 @@ class IndexController extends AdminBaseController
 {
     public function index(Request $request)
     {
-//        var_dump($request->user());
-        return view("admin.dashboard");
+        return view("admin.index");
     }
 }

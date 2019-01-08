@@ -45,6 +45,9 @@
 </head>
 <body>
 <div id="app">
+    <example-component></example-component>
+    <test-component></test-component>
+
     <div class="container-fluid">
         <div class="row">
             <div class="panel panel-primary">

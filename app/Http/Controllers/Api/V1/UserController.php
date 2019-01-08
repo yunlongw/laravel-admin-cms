@@ -52,10 +52,8 @@ class UserController extends BaseController
             ));
         }
 
-        $memeber = Member::where(['email' => $payload['email']])->count();
-
-
-        if ($memeber > 0) {
+        $member = Member::where(['email' => $payload['email']])->count();
+        if ($member > 0) {
             return $this->response->array(Response::error('重复注册'));
         }
 
