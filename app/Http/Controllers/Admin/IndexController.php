@@ -16,4 +16,9 @@ class IndexController extends AdminBaseController
     {
         return view("admin.index");
     }
+
+    public function dashboard()
+    {
+        return view("admin.dashboard");
+    }
 }

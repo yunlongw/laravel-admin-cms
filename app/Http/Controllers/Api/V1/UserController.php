@@ -125,7 +125,7 @@ class UserController extends BaseController
     }
 
 
-    public function guard()
+    private function guard()
     {
         return \Auth::guard($this->guard);
     }

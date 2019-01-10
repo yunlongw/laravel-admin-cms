@@ -35,11 +35,17 @@ Route::group(['guard' => 'Admin'], function ($router) {
 Route::group(['guard' => 'admin', 'namespace' => 'Admin', 'prefix' => 'admin'], function ($router) {
 
     $router->get('/', 'IndexController@index');
+    $router->get('/dashboard', 'IndexController@dashboard');
     $router->get('/home', 'IndexController@index');
 
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RolesController');
     Route::resource('permissions', 'PermissionsController');
+
+    Route::resource('apis', 'ApiManageControllers');
+    Route::resource('android', 'AndroidControllers');
+    Route::resource('ios', 'IosControllers');
+
 });
 
 

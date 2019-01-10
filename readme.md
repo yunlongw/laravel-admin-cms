@@ -9,7 +9,24 @@
 
 ## install
 
-安装说明
+``` shell
+
+composer-install
+
+npm install 
+
+// 生成 laravel key
+php artisan key:gen
+
+// 生成jwt key
+php artisan jwt:secret
+
+//安装 laravel-echo-server 
+npm install -g laravel-echo-server
+
+//启动 laravel-echo-server , 修改配置  laravel-echo-server.json
+laravel-echo-server start
+```
 
 ## packagist
 
@@ -18,12 +35,14 @@
 - **[laravel-permission](https://github.com/spatie/laravel-permission)**
 - **[laravel-log-viewer](https://github.com/rap2hpoutre/laravel-log-viewer)**
 - **[Laravel Telescope](https://github.com/laravel/telescope)**
+- **[dingo/api](https://packagist.org/packages/dingo/api)**
+- **[tymon/jwt-auth](https://packagist.org/packages/tymon/jwt-auth)**
 
 
 #### 日志
-http://dev.blog.com/logs
+http://example.com/logs
 #### telescope
-http://dev.blog.com/telescope
+http://example.com/telescope
 
 ## npm
 
