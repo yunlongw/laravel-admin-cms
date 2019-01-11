@@ -19,5 +19,4 @@ mix.js('resources/js/admin.js', 'js')
     .extract([
         'vue',
         'clipboard',
-        'react-json-view',
     ]);

@@ -4,7 +4,7 @@
 
 @section('content_header')
     <h3 class="page-title">
-        Api 管理
+        Android 发布管理
         <small>Control panel</small>
     </h3>
 @stop
@@ -21,15 +21,15 @@
 
         <div class="panel-body table-responsive">
 
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <table id="admin-api-index-example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
                     <th>序号</th>
-                    <th>更新内容</th>
-                    <th>内部版本号</th>
-                    <th>客户端版本</th>
-                    <th>是否强制更新</th>
-                    <th>下载地址</th>
+                    <th>名称</th>
+                    <th>版本</th>
+                    <th>类型</th>
+                    <th>请求地址</th>
+                    <th>检查token</th>
                     <th>创建时间</th>
                     <th>更新时间</th>
                     <th></th>
@@ -37,34 +37,43 @@
                 </thead>
                 <tbody>
 
-                @if(count($apis) > 0)
-                    @foreach ($apis as $api)
+                @if(count($api_list) > 0)
+                    @foreach ($api_list as $api)
                         <tr>
+                            <td>{{$api->id}}</td>
                             <td>{{$api->name}}</td>
-                            <td>{{$api->guard_name}}</td>
-                            <td>{{$api->created_at}}</td>
+                            <td>{{$api->version}}</td>
+                            <td>{{$api->request_method}}</td>
+                            <td>
+                                <button class="btn clipboard_btn btn-default" data-clipboard-text="{{$api->url}}">
+                                    {{$api->url}}
+                                </button>
+                            </td>
+                            <td>{{$api->check_token}}</td>
                             <td>{{$api->updated_at}}</td>
                             <td>{{$api->updated_at}}</td>
-                            <td>{{$api->updated_at}}</td>
-                            <td>{{$api->updated_at}}</td>
-                            <td>{{$api->updated_at}}</td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('apis.edit',[$api->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                {!! Form::open(array(
+                                    'style' => 'display: inline-block;',
+                                    'method' => 'DELETE',
+                                    'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
+                                    'route' => ['users.destroy', $api->id])) !!}
+                                {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                {!! Form::close() !!}
+                            </td>
                         </tr>
                     @endforeach
-                @else
-                    <tr>
-                        <td colspan="3">@lang('global.app_no_entries_in_table')</td>
-                    </tr>
                 @endif
                 </tbody>
                 <tfoot>
                 <tr>
                     <th>序号</th>
-                    <th>更新内容</th>
-                    <th>内部版本号</th>
-                    <th>客户端版本</th>
-                    <th>是否强制更新</th>
-                    <th>下载地址</th>
+                    <th>名称</th>
+                    <th>版本</th>
+                    <th>类型</th>
+                    <th>请求地址</th>
+                    <th>检查token</th>
                     <th>创建时间</th>
                     <th>更新时间</th>
                     <th></th>
@@ -78,9 +87,5 @@
 @stop
 
 @section('adminlte_js')
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
+
 @endsection

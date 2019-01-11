@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Api\Model\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class ApiManageControllers extends AdminBaseController
 {
@@ -26,7 +27,7 @@ class ApiManageControllers extends AdminBaseController
      */
     public function create()
     {
-        //
+        return view('admin.api.create');
     }
 
     /**
@@ -37,7 +38,12 @@ class ApiManageControllers extends AdminBaseController
      */
     public function store(Request $request)
     {
-        //
+        $validator = $this->verify($request, 'api.store');
+        if ($fails = $validator->fails()){
+            return redirect()->route('apis.create')->withErrors($validator);
+        }
+        Api::create($request->all());
+        return redirect()->route('apis.index');
     }
 
     /**
@@ -72,7 +78,11 @@ class ApiManageControllers extends AdminBaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $info  = Api::findOrFail($id);
+        $data = $request->all();
+        $info->update($data);
+
+        return redirect()->route('apis.index');
     }
 
     /**

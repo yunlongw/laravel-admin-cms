@@ -49,7 +49,13 @@
                                     {{$api->url}}
                                 </button>
                             </td>
-                            <td>{{$api->check_token}}</td>
+                            <td>
+                                @if ($api->check_token == 1)
+                                    <span class="label label-success">yes</span>
+                                @else
+                                    <span class="label label-danger">no</span>
+                                @endif
+                            </td>
                             <td>{{$api->updated_at}}</td>
                             <td>{{$api->updated_at}}</td>
                             <td>
@@ -64,10 +70,6 @@
                             </td>
                         </tr>
                     @endforeach
-                @else
-                    <tr>
-                        <td colspan="8">@lang('global.app_no_entries_in_table')</td>
-                    </tr>
                 @endif
                 </tbody>
                 <tfoot>

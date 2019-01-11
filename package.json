@@ -33,6 +33,7 @@
         "pusher-js": "^4.3.1",
         "react-json-view": "^1.19.1",
         "socket.io-client": "^2.2.0",
+        "vue-json-tree-view": "^2.1.4",
         "webpack": "^4.27.1"
     }
 }

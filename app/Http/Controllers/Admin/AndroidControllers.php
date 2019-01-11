@@ -14,7 +14,8 @@ class AndroidControllers extends AdminBaseController
      */
     public function index()
     {
-        return view("admin.android.index");
+        $api_list = [];
+        return view("admin.android.index", compact('api_list'));
     }
 
     /**

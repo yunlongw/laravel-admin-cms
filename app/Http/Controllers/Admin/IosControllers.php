@@ -14,7 +14,8 @@ class IosControllers extends AdminBaseController
      */
     public function index()
     {
-        return view("admin.ios.index");
+        $api_list = [];
+        return view("admin.ios.index", compact('api_list'));
     }
 
     /**

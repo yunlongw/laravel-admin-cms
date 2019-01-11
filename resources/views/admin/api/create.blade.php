@@ -1,17 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'User')
+@section('title', 'Permissions')
 
 @section('content_header')
-    <h3 class="page-title">Api 管理</h3>
+    <h1>@lang('global.api_list.title')</h1>
 @stop
+
 @section('content')
-    <h3 class="page-title">@lang('global.api_list.title')</h3>
-    {!! Form::model($info, ['method' => 'PUT', 'route' => ['apis.update', $info->id]]) !!}
+    {!! Form::open(['method' => 'POST', 'route' => ['apis.store']]) !!}
+
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('global.app_edit')
+            @lang('global.app_create')
         </div>
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
@@ -46,7 +48,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('url', 'url*', ['class' => 'control-label']) !!}
-                    {!! Form::text('url', old('url'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('url', old('url'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('url'))
                         <p class="help-block">
@@ -58,7 +60,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('name', 'Name*', ['class' => 'control-label']) !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('name'))
                         <p class="help-block">
@@ -70,7 +72,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('version', 'version*', ['class' => 'control-label']) !!}
-                    {!! Form::text('version', old('version'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('version', old('version'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('version'))
                         <p class="help-block">
@@ -82,7 +84,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('headers', 'Headers*', ['class' => 'control-label']) !!}
-                    {!! Form::text('headers', old('headers'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('headers', old('headers'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('headers'))
                         <p class="help-block">
@@ -94,7 +96,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('request', 'request *', ['class' => 'control-label']) !!}
-                    {!! Form::text('request', old('request'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('request', old('request'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('request'))
                         <p class="help-block">
@@ -106,7 +108,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('response', 'response *', ['class' => 'control-label']) !!}
-                    {!! Form::text('response', old('response'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('response', old('response'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('response'))
                         <p class="help-block">
@@ -116,9 +118,9 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    {!! Form::submit(trans('global.app_update'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
-
