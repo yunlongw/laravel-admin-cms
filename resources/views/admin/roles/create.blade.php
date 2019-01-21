@@ -49,6 +49,6 @@
 @stop
 
 
-@section('adminlte_js')
+@section('js')
 
 @endsection

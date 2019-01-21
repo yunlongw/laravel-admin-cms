@@ -75,7 +75,7 @@
     </div>
 @stop
 
-@section('adminlte_js')
+@section('js')
     <script>
         $(document).ready(function () {
             $('#example').DataTable();

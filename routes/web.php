@@ -21,7 +21,6 @@ Route::get('/test', "TestController@index");
 //聊天室
 Route::get("/chat", "ChatController@index");
 Route::post("/chat", "ChatController@chat");
-Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
@@ -37,6 +36,7 @@ Route::group(['guard' => 'admin', 'namespace' => 'Admin', 'prefix' => 'admin'], 
     $router->get('/', 'IndexController@index');
     $router->get('/dashboard', 'IndexController@dashboard');
     $router->get('/home', 'IndexController@index');
+    $router->get('/logs', 'LogViewerController@index');
 
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RolesController');

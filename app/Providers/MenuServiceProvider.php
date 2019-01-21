@@ -37,6 +37,7 @@ class MenuServiceProvider extends ServiceProvider
                 'text' => 'User Manage',
                 'icon' => 'users',
                 'permission' => 'manage_users',
+                'icon_color' => 'red',
                 'submenu' => [
                     [
                         'text' => 'Permissions',
@@ -61,6 +62,7 @@ class MenuServiceProvider extends ServiceProvider
 
             $event->menu->add([
                 'text' => 'Api Manage',
+                'icon_color' => 'blue',
                 'submenu' => [
                     [
                         'text' => 'Api List',
@@ -77,21 +79,13 @@ class MenuServiceProvider extends ServiceProvider
                 ],
 
             ]);
-
             $event->menu->add("LABELS");
             $event->menu->add([
-                'text' => 'Important',
-                'icon_color' => 'red',
-            ]);
-            $event->menu->add([
-                'text' => 'Warning',
+                'text' => 'Logs',
+                'icon' => 'calendar',
+                'url' => 'admin/logs',
                 'icon_color' => 'yellow',
             ]);
-            $event->menu->add([
-                'text' => 'Information',
-                'icon_color' => 'aqua',
-            ]);
-
 
         });
     }
