@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateUsersRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 
 class UserController extends AdminBaseController
@@ -108,10 +109,13 @@ class UserController extends AdminBaseController
      */
     public function destroy($id)
     {
+        if ($id == 1){
+            return redirect()->route('users.index')->withErrors(['message' => '不能删除此用户']);
+        }
         $this->permission();
         $user = Admin::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 }

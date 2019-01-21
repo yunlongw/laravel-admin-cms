@@ -11,11 +11,19 @@
         <a href="{{ route("users.create") }}" class="btn btn-success">Add User</a>
     </p>
 
+    @if($errors->has('message'))
+        <div class="alert alert-error">
+            <a class="close" data-dismiss="alert">×</a>
+            <strong>Error!</strong> {{ $errors->first('message') }}
+        </div>
+    @endif
+
     <div class="panel panel-default">
         <div class="panel-heading">
-            list
+            <p class="help-block">
+                List
+            </p>
         </div>
-
         <div class="panel-body table-responsive">
 
             <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -40,14 +48,18 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="{{ route('users.edit',[$user->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
-                                {!! Form::open(array(
-                                    'style' => 'display: inline-block;',
-                                    'method' => 'DELETE',
-                                    'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
-                                    'route' => ['users.destroy', $user->id])) !!}
-                                {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                {!! Form::close() !!}
+
+                                <a href="{{ route('users.edit',[$user->id]) }}"
+                                   class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                @if($user->id != 1)
+                                    {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
+                                        'route' => ['users.destroy', $user->id])) !!}
+                                    {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                @endif
                             </td>
                         </tr>
                     @endforeach
