@@ -11,7 +11,7 @@ namespace App\Http\Controllers\Admin;
 use  \Rap2hpoutre\LaravelLogViewer\LogViewerController as  LogsViewerController;
 
 
-class LogViewerController extends LogsViewerController
+class LogController extends LogsViewerController
 {
     public function __construct()
     {

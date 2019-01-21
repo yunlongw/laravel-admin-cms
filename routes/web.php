@@ -36,7 +36,7 @@ Route::group(['guard' => 'admin', 'namespace' => 'Admin', 'prefix' => 'admin'], 
     $router->get('/', 'IndexController@index');
     $router->get('/dashboard', 'IndexController@dashboard');
     $router->get('/home', 'IndexController@index');
-    $router->get('/logs', 'LogViewerController@index');
+    $router->get('/logs', 'LogController@index');
 
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RolesController');
