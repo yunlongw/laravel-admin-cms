@@ -19,7 +19,10 @@ use Illuminate\Http\Request;
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api\V1',
+//    'middleware' => 'cors',
+], function ($api) {
     $api->post('user/index', 'UserController@index');
     $api->post('index/index', 'IndexController@index');
     $api->post('user/register', 'UserController@register');
@@ -27,6 +30,8 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($a
     $api->post('user/logout', 'UserController@logout');
     $api->post('user/refresh', 'UserController@refresh');
     $api->post('user/me', 'UserController@me');
+
+    $api->post('test/index', 'TestController@index');
 });
 
 $api->version('v2', ['namespace' => 'App\Http\Controllers\Api\V2'], function ($api) {

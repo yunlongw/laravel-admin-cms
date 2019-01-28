@@ -15,4 +15,10 @@ use Dingo\Api\Routing\Helpers;
 class BaseController extends Controller
 {
     use Helpers;
+
+    public function __construct()
+    {
+        //跨域
+//        $this->middleware('cors');
+    }
 }
