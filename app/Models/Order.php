@@ -13,5 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-
+    public function member()
+    {
+        return $this->belongsTo("App\Http\Controllers\Api\Model\Member", 'id', 'uid');
+    }
 }

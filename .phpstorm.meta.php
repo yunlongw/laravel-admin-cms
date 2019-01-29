@@ -5,13 +5,14 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-01-21 11:24:26.
+    * Generated on 2019-01-28 10:38:40.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
     */
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -150,6 +151,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -197,6 +199,7 @@ namespace PHPSTORM_META {
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -335,6 +338,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -382,6 +386,7 @@ namespace PHPSTORM_META {
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -520,6 +525,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -567,6 +573,7 @@ namespace PHPSTORM_META {
     ]));
     override(\App::make(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -705,6 +712,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -752,6 +760,7 @@ namespace PHPSTORM_META {
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -890,6 +899,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -937,6 +947,7 @@ namespace PHPSTORM_META {
     ]));
     override(\app(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -1075,6 +1086,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,
@@ -1122,6 +1134,7 @@ namespace PHPSTORM_META {
     ]));
     override(\resolve(0), map([
         '' => '@',
+        'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
         'Dingo\Api\Console\Command\Docs' => \Dingo\Api\Console\Command\Docs::class,
         'Dingo\Api\Http\Middleware\Auth' => \Dingo\Api\Http\Middleware\Auth::class,
         'Dingo\Api\Http\Middleware\PrepareController' => \Dingo\Api\Http\Middleware\PrepareController::class,
@@ -1260,6 +1273,7 @@ namespace PHPSTORM_META {
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'graphql' => \Rebing\GraphQL\GraphQL::class,
         'hash' => \Illuminate\Hashing\HashManager::class,
         'hash.driver' => \Illuminate\Hashing\BcryptHasher::class,
         'html' => \Collective\Html\HtmlBuilder::class,

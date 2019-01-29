@@ -37,8 +37,6 @@ class Member extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
-
-
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -49,5 +47,9 @@ class Member extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function order()
+    {
+        return $this->hasMany('App\Models\Order','uid', 'id');
+    }
 
 }

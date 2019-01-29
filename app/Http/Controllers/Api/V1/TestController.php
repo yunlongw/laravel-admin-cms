@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api\V1;
 
 
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Controllers\Api\Model\Member;
 use App\Traits\UdpLogTrait;
 
 /**
@@ -23,8 +24,14 @@ class TestController extends BaseController
     public function index()
     {
         $this->write('111',  'asdfsf' );
+        $d = Member::find(6);
         return json_encode(
-            ['code' => 200]
+            [
+                'code' => 200,
+                'data' => [],
+                'd' => $d,
+                'o' => $d->order
+            ]
         );
     }
 }

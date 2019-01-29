@@ -19,10 +19,12 @@
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
+        "noh4ck/graphiql": "^1.0",
         "php-amqplib/php-amqplib": "^2.8",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "^3.2",
         "rap2hpoutre/laravel-log-viewer": "^0.22.1",
+        "rebing/graphql-laravel": "^1.17",
         "spatie/laravel-permission": "^2.28",
         "tymon/jwt-auth": "^1.0.0-rc.1"
     },
