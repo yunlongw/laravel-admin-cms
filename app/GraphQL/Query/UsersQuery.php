@@ -12,6 +12,7 @@ namespace App\GraphQL\Query;
 use App\Http\Controllers\Api\Model\Member;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
+use Auth;
 use Rebing\GraphQL\Support\Query;
 
 class UsersQuery extends Query
@@ -19,6 +20,14 @@ class UsersQuery extends Query
     protected $attributes = [
         'name' => 'Users query'
     ];
+
+    protected $guard = 'graphql';
+
+
+//    public function authorize(array $args)
+//    {
+//        return ! Auth::guard($this->guard)->guest();
+//    }
 
     public function type()
     {
@@ -28,8 +37,14 @@ class UsersQuery extends Query
     public function args()
     {
         return [
-            'id' => ['name' => 'id', 'type' => Type::string()],
-            'email' => ['name' => 'email', 'type' => Type::string()]
+            'id' => [
+                'name' => 'id',
+                'type' => Type::string()
+            ],
+            'email' => [
+                'name' => 'email',
+                'type' => Type::string(),
+            ]
         ];
     }
 

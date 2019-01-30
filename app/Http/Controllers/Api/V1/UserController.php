@@ -19,12 +19,11 @@ use Validator;
 
 class UserController extends BaseController
 {
-
     protected $guard = 'api';
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
 

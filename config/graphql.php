@@ -2,10 +2,10 @@
 
 return [
 
-    // The prefix for routes
+    // The prefix for routes  路由的前缀
     'prefix' => 'graphql',
 
-    // The routes to make GraphQL request. Either a string that will apply
+    // The routes to make GraphQL request. Either a string that will apply  做GraphQL请求的路由。要么是适用的字符串
     // to both query and mutation or an array containing the key 'query' and/or
     // 'mutation' with the according Route
     //
@@ -35,7 +35,9 @@ return [
     //     'mutation' => '\Rebing\GraphQL\GraphQLController@mutation'
     // ]
     //
-    'controllers' => \Rebing\GraphQL\GraphQLController::class . '@query',
+//    'controllers' => \Rebing\GraphQL\GraphQLController::class . '@query',
+    'controllers' => \App\GraphQL\Controller\GraphQLController::class . '@query',
+
 
     // Any middleware for the graphql route group
     'middleware' => [],
@@ -46,7 +48,9 @@ return [
     //
     // 'route_group_attributes' => ['guard' => 'api']
     //
-    'route_group_attributes' => [],
+    'route_group_attributes' => [
+        'guard' => 'graphql'
+    ],
 
     // The name of the default schema used when no argument is provided
     // to GraphQL::schema() or when the route is used without the graphql_schema
@@ -100,6 +104,7 @@ return [
             'mutation' => [
                 'updateUserPassword' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class,
                 'updateUserEmail' => App\GraphQL\Mutation\UpdateUserEmailMutation::class,
+                'login' => App\GraphQL\Mutation\LoginMutation::class,
             ],
             'middleware' => [],
             'method' => ['get', 'post'],
@@ -118,6 +123,7 @@ return [
     'types' => [
         'user'           => \App\GraphQL\Type\UsersType::class,
         'order'           => \App\GraphQL\Type\OrdersType::class,
+        'OrderStatusEnum' => \App\GraphQL\Type\OrderStatusEnum::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
@@ -130,19 +136,20 @@ return [
     'error_formatter' => ['\Rebing\GraphQL\GraphQL', 'formatError'],
 
     /**
-     * Custom Error Handling
+     * Custom Error Handling  自定义错误处理
      *
      * Expected handler signature is: function (array $errors, callable $formatter): array
      *
-     * The default handler will pass exceptions to laravel Error Handling mechanism
+     * The default handler will pass exceptions to laravel Error Handling mechanism 默认处理程序将异常传递给laravel错误处理机制
      */
     'errors_handler' => ['\Rebing\GraphQL\GraphQL', 'handleErrors'],
 
-    // You can set the key, which will be used to retrieve the dynamic variables
+    // You can set the key, which will be used to retrieve the dynamic variables 您可以设置密钥，该密钥将用于检索动态变量
     'params_key'    => 'variables',
 
     /*
-     * Options to limit the query complexity and depth. See the doc
+     *
+     * Options to limit the query complexity and depth. See the doc 用于限制查询复杂性和深度的选项
      * @ https://github.com/webonyx/graphql-php#security
      * for details. Disabled by default.
      */
@@ -153,7 +160,7 @@ return [
     ],
 
     /*
-     * You can define your own pagination type.
+     * You can define your own pagination type. 您可以定义自己的分页类型
      * Reference \Rebing\GraphQL\Support\PaginationType::class
      */
     'pagination_type' => \Rebing\GraphQL\Support\PaginationType::class,

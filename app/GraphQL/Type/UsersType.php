@@ -27,12 +27,19 @@ class UsersType extends GraphQLType
         return [
             'id' => [
                 'type' => Type::nonNull(Type::string()),
-                'description' => 'The id of the user',
+                'description' => 'The id of the member',
                 'alias' => 'user_id', // Use 'alias', if the database column is different from the type name
+            ],
+            'name' => [
+                'type' => Type::string(),
+                'description' => 'the name of member'
             ],
             'email' => [
                 'type' => Type::string(),
-                'description' => 'The email of user',
+                'description' => 'The email of member',
+//                'privacy' => function(array $args){
+//                    return $args['id'] == Auth::id();
+//                }
             ],
             // Uses the 'getIsMeAttribute' function on our custom User model
             'isMe' => [
@@ -43,7 +50,14 @@ class UsersType extends GraphQLType
             'order' => [
                 'type' =>Type::listOf(GraphQL::type('order')),
                 'description' => "user's order",
-            ]
+            ],
+            'friend' => [
+                'type' => Type::listOf(GraphQL::type('user')),
+            ],
+            'remember_token' => [
+                'type' => Type::string(),
+                'description' => 'user token'
+            ],
         ];
     }
 

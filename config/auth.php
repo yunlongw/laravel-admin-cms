@@ -49,7 +49,12 @@ return [
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
-        ]
+        ],
+
+        'graphql' => [
+            'driver' => 'jwt',
+            'provider' => 'members',
+        ],
     ],
 
     /*

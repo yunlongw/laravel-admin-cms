@@ -9,6 +9,7 @@
 namespace App\GraphQL\Type;
 
 use App\Models\Order;
+use GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
@@ -34,6 +35,9 @@ class OrdersType extends GraphQLType
             ],
             'total' => [
                 'type' => Type::int(),
+            ],
+            'status' => [
+                'type' => GraphQL::type('OrderStatusEnum'),
             ],
             'created_at' => [
                 'type' => Type::string(),
