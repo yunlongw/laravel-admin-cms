@@ -36,7 +36,8 @@
         "nunomaduro/collision": "^2.0",
         "orangehill/iseed": "^2.6",
         "phpstan/phpstan": "^0.10.6",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.0",
+        "wnx/laravel-stats": "^1.8"
     },
     "config": {
         "optimize-autoloader": true,
