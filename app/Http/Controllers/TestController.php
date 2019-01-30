@@ -19,9 +19,10 @@ class TestController extends Container
 {
     public function index()
     {
-        event(new MessageEvent());
-        event(new NotificationsEvent());
+//        event(new MessageEvent());
+//        event(new NotificationsEvent());
 //        event(new UserLogin());
 //        event(new RssCreatedEvent());
+        throw new \Exception('sentry 错误测试');
     }
 }

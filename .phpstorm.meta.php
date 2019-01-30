@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-01-30 06:07:55.
+    * Generated on 2019-01-30 06:36:50.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -171,6 +171,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -358,6 +359,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -545,6 +547,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -732,6 +735,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -919,6 +923,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -1106,6 +1111,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -1293,6 +1299,7 @@ namespace PHPSTORM_META {
         'redis' => \Illuminate\Redis\RedisManager::class,
         'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Sentry\State\Hub::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
