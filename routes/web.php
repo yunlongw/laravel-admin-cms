@@ -17,6 +17,8 @@
 
 //测试
 Route::get('/test', "TestController@index");
+Route::get('/socketio', "TestController@socketio");
+Route::get('/sentry', "TestController@sentry");
 
 //聊天室
 Route::get("/chat", "ChatController@index");
