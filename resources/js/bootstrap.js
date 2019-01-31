@@ -51,5 +51,5 @@ window.io = require('socket.io-client')
 
 window.Echo = new Echo({
     broadcaster: 'socket.io',
-    host: "172.21.0.6" + ':6001'
+    host: window.location.hostname + ':6001'
 });
